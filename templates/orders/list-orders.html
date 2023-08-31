@@ -9,10 +9,10 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-
-    <title>index</title>
+    <title>list orders</title>
   </head>
   <body>
+    <!-- navbar -->
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
@@ -31,10 +31,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/products/list-products">listado de productos</a>
+                <a class="nav-link active" aria-current="page" href="/products/list-products">Listado de productos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/orders/list-orders">Listado de ordenes</a>
+                <a class="nav-link" href="/orders/list-orders">listado de ordenes</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -81,7 +81,26 @@
         </div>
       </nav>
     </header>
-    <h1>hola desde el index</h1>
+
+    <h1>hola desde list orders</h1>
+    {% for order in orders %}
+
+    <!-- cards-->
+    <div class="card" style="width: 18rem">
+      <img
+        src="https://media.istockphoto.com/id/459257189/es/foto/puede-de-monster-bebida-energ%C3%A9tica.jpg?s=612x612&w=0&k=20&c=ncDL6rah54bual1YE26Q69zWTKUF__sdLZq4uFmhKx8="
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">El cliente :{{order.client}}</h5>
+        <p class="card-text">compro el producto: ${{order.product}} el {{order.creation_datetime}} </p>
+        <p>el pago se realizo con {{order.payment_method}} </p>
+        <a href="#" class="btn btn-primary">Cer detalle</a>
+      </div>
+    </div>
+
+    {% endfor %}
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
